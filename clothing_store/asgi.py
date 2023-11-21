@@ -10,7 +10,8 @@ https://docs.djangoproject.com/en/4.2/howto/deployment/asgi/
 import os
 
 from django.core.asgi import get_asgi_application
+from decouple import config
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "clothing_store.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", f"clothing_store.settings.{config('SETTINGS')}")
 
 application = get_asgi_application()
